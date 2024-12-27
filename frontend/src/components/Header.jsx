@@ -10,16 +10,9 @@ import { logout } from "../store/actions/user";
 const navItemsInfo = [
   { name: "Home", type: "link", href: "/" },
   { name: "Blog", type: "link", href: "/blog" },
-  {
-    name: "Pages",
-    type: "dropdown",
-    items: [
-      { title: "About us", href: "/about" },
-      { title: "Contact us", href: "/contact" },
-    ],
-  },
-  { name: "Pricing", type: "link", href: "/pricing" },
-  { name: "Faq", type: "link", href: "/faq" },
+  { name: "About us", type: "link", href: "/about"},
+  { name: "Contact Us", type: "link", href: "/contact"}
+  
 ];
 
 const NavItem = ({ item }) => {

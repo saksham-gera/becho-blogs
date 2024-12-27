@@ -16,6 +16,9 @@ import Categories from "./pages/admin/screens/categories/Categories";
 import EditCategories from "./pages/admin/screens/categories/EditCategories";
 import Users from "./pages/admin/screens/users/Users";
 import BlogPage from "./pages/blog/BlogPage";
+import AboutPage from "./pages/about/AboutPage";
+import ContactPage from "./pages/contact/ContactPage";
+import PrivacyPolicy from "./pages/privacy/PrivacyPage";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Admin />} />
           <Route path="comments" element={<Comments />} />
