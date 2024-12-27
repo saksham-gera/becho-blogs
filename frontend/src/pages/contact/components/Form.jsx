@@ -34,7 +34,7 @@ const ContactForm = () => {
                 <div className="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
                   <div className="mt-3 rounded-lg sm:mt-0">
                     <Link to="/">
-                      <button className="items-center block px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 lg:px-10 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                      <button className="items-center block px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-[rgb(86,139,190)] lg:px-10 rounded-xl hover:bg-[rgb(59,96,140)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         Sign in
                       </button>
                     </Link>
@@ -46,7 +46,7 @@ const ContactForm = () => {
         </div>
       </section>
 
-      <section className="text-gray-600 body-font bg-blue-500">
+      <section className="text-gray-600 body-font bg-[rgb(86,139,190)]">
         <div className="container flex flex-col md:flex-row lg:max-w-5xl w-full px-5 py-12 md:py-24 mx-auto section">
           <div className="md:w-1/3 w-full">
             <h1 className="text-4xl text-gray-800 sm:text-4xl font-bold title-font mb-4">

@@ -48,7 +48,7 @@ const JoinNow = () => (
           } sm:flex-row flex-col`}
         >
           <div
-            className={`sm:mr-10 sm:w-32 sm:h-32 h-20 w-20 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 flex-shrink-0`}
+            className={`sm:mr-10 sm:w-32 sm:h-32 h-20 w-20 inline-flex items-center justify-center rounded-full bg-blue-100 text-[rgb(86,139,190)] flex-shrink-0`}
           >
             <svg
               fill="none"
@@ -67,7 +67,7 @@ const JoinNow = () => (
               {item.title}
             </h2>
             <p className="leading-relaxed text-base">{item.description}</p>
-            <a className="mt-3 text-blue-500 inline-flex items-center">
+            <a className="mt-3 text-[rgb(86,139,190)] inline-flex items-center">
               Learn More
               <svg
                 fill="none"
@@ -84,7 +84,7 @@ const JoinNow = () => (
           </div>
         </div>
       ))}
-      <button className="flex mx-auto mt-20 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+      <button className="flex mx-auto mt-20 text-white bg-[rgb(86,139,190)] border-0 py-2 px-8 focus:outline-none hover:bg-[rgb(59,96,140)] rounded text-lg">
         Join Us
       </button>
     </div>
