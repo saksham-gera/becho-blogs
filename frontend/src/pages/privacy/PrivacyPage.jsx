@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
   return (
     <MainLayout style={{ backgroundColor: '#a67bdb' }}>
       <Heading />
-      <Content />
+      <Content className="bg-gray-50" ></Content>
     </MainLayout>
   );
 };
