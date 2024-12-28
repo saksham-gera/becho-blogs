@@ -2,17 +2,23 @@ import React from 'react'
 
 function Heading() {
   return (
-    <div className="font-bold ml-9">
-        <div className='text-[3rem]'>
-          Becho
-        </div>
-        <div className='text-[1.5rem]'>
+    <div>
+    <section className="w-full bg-gray-50">
+    <div className="relative items-center w-full px-6 py-8 mx-auto md:px-12 lg:px-20 max-w-7xl">
+      <div className="text-center">
+        <h1 className="text-4xl font-extrabold leading-tight tracking-tighter text-gray-800 md:text-5xl lg:text-6xl">
           Privacy Policy
-        </div>
-        <div className='font-normal'>
-          Modified 27 December 2024
-        </div>
+        </h1>
+        <p className="mt-2 text-lg text-gray-600 md:text-xl">
+          Please read the terms carefully before using our services.
+        </p>
       </div>
+    </div>
+  </section>
+
+  {/* Decorative Divider */}
+  <div className="w-[70vw] h-1 mx-auto mt-4 bg-gradient-to-r from-blue-300 via-violet-300 to-violet-500 rounded-lg"></div>
+</div>
   )
 }
 

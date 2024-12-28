@@ -24,6 +24,8 @@ import EditProductCategories from "./pages/admin/screens/productCategories/EditC
 import EditProducts from "./pages/admin/screens/products/EditProduct";
 import ManageProducts from "./pages/admin/screens/products/ManageProduct";
 import CreateProduct from "./pages/admin/screens/productCategories/CreateProduct";
+import TermsPage from "./pages/terms/TermsPage";
+
 function App() {
   return (
     <div className="App font-opensans">
@@ -37,6 +39,8 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsPage/>} />
+
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Admin />} />
           <Route path="comments" element={<Comments />} />
