@@ -7,7 +7,7 @@ export const getAllCategories = async (
 ) => {
   try {
     const { data, headers } = await axios.get(
-      `https://becho-blogs-server.vercel.app/api/post-categories?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/post-categories?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`
     );
     return { data, headers };
   } catch (error) {
@@ -25,7 +25,7 @@ export const deleteCategory = async ({ slug, token }) => {
       },
     };
 
-    const { data } = await axios.delete(`https://becho-blogs-server.vercel.app/api/post-categories/${slug}`, config);
+    const { data } = await axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/api/post-categories/${slug}`, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -43,7 +43,7 @@ export const createCategory = async ({ token, title }) => {
     };
 
     const { data } = await axios.post(
-      `https://becho-blogs-server.vercel.app/api/post-categories`,
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/post-categories`,
       { title },
       config
     );
@@ -64,7 +64,7 @@ export const updateCategory = async ({ token, title, slug }) => {
     };
 
     const { data } = await axios.put(
-      `https://becho-blogs-server.vercel.app/api/post-categories/${slug}`,
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/post-categories/${slug}`,
       { title },
       config
     );
@@ -78,7 +78,7 @@ export const updateCategory = async ({ token, title, slug }) => {
 
 export const getSingleCategory = async ({ slug }) => {
   try {
-    const { data } = await axios.get(`https://becho-blogs-server.vercel.app/api/post-categories/${slug}`);
+    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/post-categories/${slug}`);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)

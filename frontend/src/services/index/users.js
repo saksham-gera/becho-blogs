@@ -2,7 +2,8 @@ import axios from "axios";
 
 export const signup = async ({ name, email, password }) => {
   try {
-    const { data } = await axios.post("https://becho-blogs-server.vercel.app/api/users/register", {
+    console.log(process.env.REACT_APP_BACKEND_API_URL);
+    const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/api/users/register`, {
       name,
       email,
       password,
@@ -17,7 +18,7 @@ export const signup = async ({ name, email, password }) => {
 
 export const login = async ({ email, password }) => {
   try {
-    const { data } = await axios.post("https://becho-blogs-server.vercel.app/api/users/login", {
+    const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/api/users/login`, {
       email,
       password,
     });
@@ -37,7 +38,7 @@ export const getUserProfile = async ({ token }) => {
       },
     };
 
-    const { data } = await axios.get("https://becho-blogs-server.vercel.app/api/users/profile", config);
+    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/users/profile`, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -55,7 +56,7 @@ export const updateProfile = async ({ token, userData, userId }) => {
     };
 
     const { data } = await axios.put(
-      `https://becho-blogs-server.vercel.app/api/users/updateProfile/${userId}`,
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/users/updateProfile/${userId}`,
       userData,
       config
     );
@@ -77,7 +78,7 @@ export const updateProfilePicture = async ({ token, formData }) => {
     };
 
     const { data } = await axios.put(
-      "https://becho-blogs-server.vercel.app/api/users/updateProfilePicture",
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/users/updateProfilePicture`,
       formData,
       config
     );
@@ -103,7 +104,7 @@ export const getAllUsers = async (
     };
 
     const { data, headers } = await axios.get(
-      `https://becho-blogs-server.vercel.app/api/users?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`,
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/users?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`,
       config
     );
     return { data, headers };
@@ -122,7 +123,7 @@ export const deleteUser = async ({ slug, token }) => {
       },
     };
 
-    const { data } = await axios.delete(`https://becho-blogs-server.vercel.app/api/users/${slug}`, config);
+    const { data } = await axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/api/users/${slug}`, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)

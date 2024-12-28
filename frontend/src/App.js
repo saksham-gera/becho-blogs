@@ -19,7 +19,11 @@ import BlogPage from "./pages/blog/BlogPage";
 import AboutPage from "./pages/about/AboutPage";
 import ContactPage from "./pages/contact/ContactPage";
 import PrivacyPolicy from "./pages/privacy/PrivacyPage";
-
+import ProductCategories from "./pages/admin/screens/productCategories/Categories";
+import EditProductCategories from "./pages/admin/screens/productCategories/EditCategories";
+import EditProducts from "./pages/admin/screens/products/EditProduct";
+import ManageProducts from "./pages/admin/screens/products/ManageProduct";
+import CreateProduct from "./pages/admin/screens/productCategories/CreateProduct";
 function App() {
   return (
     <div className="App font-opensans">
@@ -38,10 +42,18 @@ function App() {
           <Route path="comments" element={<Comments />} />
           <Route path="posts/manage" element={<ManagePosts />} />
           <Route path="posts/manage/edit/:slug" element={<EditPost />} />
+          <Route path="products/create" element={<CreateProduct />} />
+          <Route path="products/manage" element={<ManageProducts />} />
+          <Route path="products/manage/edit/:id" element={<EditProducts />} />
           <Route path="categories/manage" element={<Categories />} />
+          <Route path="productCategories/manage" element={<ProductCategories />} />
           <Route
             path="categories/manage/edit/:slug"
             element={<EditCategories />}
+          />
+          <Route
+            path="productCategories/manage/edit/:id"
+            element={<EditProductCategories />}
           />
           <Route path="users/manage" element={<Users />} />
         </Route>

@@ -122,6 +122,18 @@ const Header = () => {
                 <Link to="/admin/categories/manage">Categories</Link>
               </NavItemCollapse>
 
+              <NavItemCollapse
+                title="Products"
+                icon={<MdDashboard className="text-xl" />}
+                name="Products"
+                activeNavName={activeNavName}
+                setActiveNavName={setActiveNavName}
+              >
+                <Link to="/admin/products/manage">Manage All Products</Link>
+                <Link to="/admin/products/create">Add New Product</Link>
+                <Link to="/admin/productCategories/manage">Product Categories</Link>
+              </NavItemCollapse>
+
               <NavItem
                 title="Users"
                 link="/admin/users/manage"

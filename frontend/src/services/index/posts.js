@@ -3,7 +3,7 @@ import axios from "axios";
 export const getAllPosts = async (searchKeyword = "", page = 1, limit = 10, categories = []) => {
   try {
     const { data, headers } = await axios.get(
-      `https://becho-blogs-server.vercel.app/api/posts?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}&categories=${categories.join(",")}`
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/posts?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}&categories=${categories.join(",")}`
     );
     return { data, headers };
   } catch (error) {
@@ -15,7 +15,7 @@ export const getAllPosts = async (searchKeyword = "", page = 1, limit = 10, cate
 
 export const getSinglePost = async ({ slug }) => {
   try {
-    const { data } = await axios.get(`https://becho-blogs-server.vercel.app/api/posts/${slug}`);
+    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/posts/${slug}`);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -32,7 +32,7 @@ export const deletePost = async ({ slug, token }) => {
       },
     };
 
-    const { data } = await axios.delete(`https://becho-blogs-server.vercel.app/api/posts/${slug}`, config);
+    const { data } = await axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/api/posts/${slug}`, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -48,7 +48,7 @@ export const updatePost = async ({ updatedData, slug, token }) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    const { data } = await axios.put(`https://becho-blogs-server.vercel.app/api/posts/${slug}`, updatedData, config);
+    const { data } = await axios.put(`${process.env.REACT_APP_BACKEND_API_URL}/api/posts/${slug}`, updatedData, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -65,7 +65,7 @@ export const createPost = async ({ token }) => {
       },
     };
 
-    const { data } = await axios.post(`https://becho-blogs-server.vercel.app/api/posts`, {}, config);
+    const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/api/posts`, {}, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
