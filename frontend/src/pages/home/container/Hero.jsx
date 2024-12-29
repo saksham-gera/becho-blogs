@@ -1,9 +1,17 @@
 import React from "react";
-
+import {useNavigate} from "react-router-dom";
 import { images } from "../../../constants";
 import Search from "../../../components/Search";
 
 const Hero = () => {
+
+  const navigate = useNavigate();
+
+  const handleSearch = ({ searchKeyword }) => {
+    // Redirect to the blog page with the search keyword in query parameters
+    navigate(`/blog?page=1&search=${encodeURIComponent(searchKeyword)}`);
+  };
+
   return (
     <section className="container mx-auto flex flex-col px-5 py-5 lg:flex-row">
       <div className="mt-10 lg:w-1/2">
@@ -14,7 +22,7 @@ const Hero = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua
         </p>
-        <Search className="mt-10 lg:mt-6 xl:mt-10" />
+        <Search className="mt-10 lg:mt-6 xl:mt-10" onSearchKeyword={handleSearch} />
         <div className="flex mt-4 flex-col lg:flex-row lg:items-start lg:flex-nowrap lg:gap-x-4 lg:mt-7">
           <span className="text-dark-light font-semibold italic mt-2 lg:mt-4 lg:text-sm xl:text-base">
             Popular Tags:
