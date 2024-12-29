@@ -14,7 +14,8 @@ import ManagePosts from "./pages/admin/screens/posts/ManagePosts";
 import EditPost from "./pages/admin/screens/posts/EditPost";
 import Categories from "./pages/admin/screens/categories/Categories";
 import EditCategories from "./pages/admin/screens/categories/EditCategories";
-import Users from "./pages/admin/screens/users/Users";
+import WebUsers from "./pages/admin/screens/users/web/Users";
+import AppUsers from "./pages/admin/screens/users/app/Users";
 import BlogPage from "./pages/blog/BlogPage";
 import AboutPage from "./pages/about/AboutPage";
 import ContactPage from "./pages/contact/ContactPage";
@@ -59,7 +60,8 @@ function App() {
             path="productCategories/manage/edit/:id"
             element={<EditProductCategories />}
           />
-          <Route path="users/manage" element={<Users />} />
+          <Route path="webusers/manage" element={<WebUsers />} />
+          <Route path="appusers/manage" element={<AppUsers />} />
         </Route>
       </Routes>
       <Toaster />

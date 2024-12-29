@@ -1,16 +1,16 @@
 import React from "react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { useDataTable } from "../../../../hooks/useDataTable";
+import { useDataTable } from "../../../../../hooks/useDataTable";
 import {
   deleteUser,
   getAllUsers,
   updateProfile,
-} from "../../../../services/index/users";
-import DataTable from "../../components/DataTable";
-import { images, stables } from "../../../../constants";
+} from "../../../../../services/index/users";
+import DataTable from "../../../components/DataTable";
+import { images, stables } from "../../../../../constants";
 
-const Users = () => {
+const AppUsers = () => {
   const {
     userState,
     currentPage,
@@ -25,13 +25,12 @@ const Users = () => {
     deleteDataHandler,
     setCurrentPage,
   } = useDataTable({
-    dataQueryFn: () =>
-      getAllUsers(userState.userInfo.token, searchKeyword, currentPage),
+    dataQueryFn: getAllUsers,
     dataQueryKey: "users",
     deleteDataMessage: "User is deleted",
-    mutateDeleteFn: ({ slug, token }) => {
+    mutateDeleteFn: ({ id, token }) => {
       return deleteUser({
-        slug,
+        id,
         token,
       });
     },
@@ -80,8 +79,7 @@ const Users = () => {
         "Name",
         "Email",
         "Created At",
-        "is Verified",
-        "is Admin",
+        "",
         "",
       ]}
       isLoading={isLoading}
@@ -161,4 +159,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default AppUsers;
