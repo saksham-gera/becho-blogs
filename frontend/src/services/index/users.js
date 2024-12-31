@@ -131,3 +131,72 @@ export const deleteUser = async ({ slug, token }) => {
     throw new Error(error.message);
   }
 };
+
+export const getAllAppUsers = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const { data } = await axios.get(`${process.env.REACT_APP_BECHO_SERVER_URL}/users`, config);
+    // console.log("API Response:", data); // Add this for debugging
+    return data;
+  } catch (error) {
+    console.error("Error fetching app users:", error); // Add this for debugging
+    if (error.response && error.response.data.message)
+      throw new Error(error.response.data.message);
+    throw new Error(error.message);
+  }
+};
+
+
+export const deleteAppUser = async ({ id, token }) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const { data } = await axios.delete(
+      `${process.env.REACT_APP_BECHO_SERVER_URL}/users/delete/${id}`,
+      config
+    );
+    return data;
+  } catch (error) {
+    if (error.response && error.response.data.message) {
+      throw new Error(error.response.data.message);
+    }
+    throw new Error(error.message);
+  }
+};
+
+export const sendNotification = async ({ token, userId, title, description }) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    // Determine whether we are sending a broadcast or individual notification
+    const dataPayload = userId
+      ? { userId, title, description }  // Individual notification
+      : { title, description };  // Broadcast notification (no userId)
+
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_BECHO_SERVER_URL}/notification/send`,
+      dataPayload,
+      config
+    );
+
+    return data;
+  } catch (error) {
+    if (error.response && error.response.data.message)
+      throw new Error(error.response.data.message);
+    throw new Error(error.message);
+  }
+};
+
+

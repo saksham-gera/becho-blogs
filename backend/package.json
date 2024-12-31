@@ -2,8 +2,8 @@
   "name": "backend-blog-app",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     
     "start": "node -r esm server.js",
